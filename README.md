@@ -4,7 +4,7 @@ This library makes it easy for you to convert HTML and CSS content into `RichTex
 
 Here's some sample HTML content:
 
-```
+```html
 <body><p style="font-size:1.5em;color:#99ff0011">Hello <b style="font-style:italic">World</b>!!<br/>
 How are you <span style="font-family:RobotoBlack;color:#ff0000;background:#33eeff00">today?</span><br/>
 <b>But</b> why are you doing <a href="https://google.com">this?</a><br/>
