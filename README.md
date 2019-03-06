@@ -2,7 +2,7 @@
 
 This library makes it easy for you to convert HTML and CSS content into `RichText` widgets. It supports most CSS properties that are relevant to text content, except those related to text alignment.
 
-Here's some sample HTML content:
+Here's some sample HTML content with inline CSS styles:
 
 ```html
 <body>
