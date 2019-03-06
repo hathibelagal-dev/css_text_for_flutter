@@ -5,13 +5,17 @@ This library makes it easy for you to convert HTML and CSS content into `RichTex
 Here's some sample HTML content:
 
 ```html
-<body><p style="font-size:1.5em;color:#99ff0011">Hello <b style="font-style:italic">World</b>!!<br/>
-How are you <span style="font-family:RobotoBlack;color:#ff0000;background:#33eeff00">today?</span><br/>
-<b>But</b> why are you doing <a href="https://google.com">this?</a><br/>
-<br/>
-<span style="text-decoration: underline solid; font-size:2em">Can you tell <del>me</del>?</span>
-<br/>
-Please visit <a style="font-weight:bold;" href="https://docs.flutter.io">Flutter docs</a></p></body>
+<body>
+    <p style="font-size:1.5em;color:#99ff0011">Hello <b style="font-style:italic">World</b>!!
+    <br/>
+    How are you <span style="font-family:RobotoBlack;color:#ff0000;background:#33eeff00">today?</span>
+    <br/>
+    <b>But</b> why are you doing <a href="https://google.com">this?</a><br/>
+    <br/>
+    <span style="text-decoration: underline solid; font-size:2em">Can you tell <del>me</del>?</span>
+    <br/>
+    Please visit <a style="font-weight:bold;" href="https://docs.flutter.io">Flutter docs</a></p>
+</body>
 ```
 
 This library can automatically convert all the HTML content above into a `TextSpan` object or a `RichText` widget. Here's what the rendered HTML will look like:
