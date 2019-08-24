@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-import './internals.dart';
 import 'package:flutter/material.dart';
+
+import './internals.dart';
 
 /// This class is the only class you should be using from the
 /// css_text library. It contains all the methods you need to
@@ -37,9 +38,23 @@ class HTML {
   /// pass a function to this method. You can use the function to handle
   /// click events on anchor tags. The function will receive the actual link
   /// as its argument.
-  static RichText toRichText(BuildContext context, String htmlContent,
-      {Function linksCallback}) {
+  static RichText toRichText(
+    BuildContext context,
+    String htmlContent, {
+    Function linksCallback,
+    double textScaleFactor,
+    int maxLines,
+    TextOverflow overflow,
+  }) {
     return RichText(
-        text: toTextSpan(context, htmlContent, linksCallback: linksCallback));
+      textScaleFactor: textScaleFactor,
+      maxLines: maxLines,
+      overflow: overflow,
+      text: toTextSpan(
+        context,
+        htmlContent,
+        linksCallback: linksCallback,
+      ),
+    );
   }
 }
