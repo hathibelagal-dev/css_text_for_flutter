@@ -1,6 +1,7 @@
-## [1.0.1] - May 23rd, 2020
+## [2.1.0] - May 23rd, 2020
 
-Support for more font-weight values
+- Support for more font-weight values.
+- Support for CSS color names
 
 ## [0.9.9] - March 6th, 2019
 
