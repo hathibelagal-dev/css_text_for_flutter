@@ -1,3 +1,7 @@
+## [1.0.1] - May 23rd, 2020
+
+Support for more font-weight values
+
 ## [0.9.9] - March 6th, 2019
 
 Added better screenshot.

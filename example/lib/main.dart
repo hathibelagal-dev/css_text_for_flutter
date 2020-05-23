@@ -19,6 +19,8 @@ How are you <span style="font-family:RobotoBlack;color:#ff0000;">today?</span>
 <br/>
 <span style="text-decoration: underline wavy; font-size:2em">Can you tell <del>me</del>?</span>
 <br/>
+Multiple <span style="font-weight:100">font</span> 
+<span style="font-weight:600">weights</span><br/><br/>
 Please visit <a style="font-weight:bold;" href="https://docs.flutter.io">Flutter docs</a>
 <br/>
 <br/>

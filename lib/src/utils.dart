@@ -67,7 +67,7 @@ class StyleGenUtils {
         textStyle = textStyle.copyWith(fontWeight: FontWeight.bold);
         break;
       default:
-        textStyle = textStyle.copyWith(fontWeight: FontWeight.bold);
+        textStyle = textStyle;
     }
     return textStyle;
   }
