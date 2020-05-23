@@ -15,6 +15,7 @@
  */
 
 import 'package:flutter/material.dart';
+import 'colors.dart';
 
 /// Has utility methods to manipulate HTML text nodes
 class TextGenUtils {
@@ -74,14 +75,21 @@ class StyleGenUtils {
 
   static int _convertColor(String value) {
     var colorHex = 0xff000000;
-    if (value.length == 7)
-      colorHex = int.parse(value.replaceAll(r"#", "0xff"));
-    else if (value.length == 9)
-      colorHex = int.parse(value.replaceAll(r"#", "0x"));
-    else if (value.length == 4) {
-      value = value.replaceFirst(r"#", "");
-      value = value.split("").map((c) => "$c$c").join();
-      colorHex = int.parse("0xff$value");
+    if (value.startsWith("#")) {
+      if (value.length == 7)
+        colorHex = int.parse(value.replaceAll(r"#", "0xff"));
+      else if (value.length == 9)
+        colorHex = int.parse(value.replaceAll(r"#", "0x"));
+      else if (value.length == 4) {
+        value = value.replaceFirst(r"#", "");
+        value = value.split("").map((c) => "$c$c").join();
+        colorHex = int.parse("0xff$value");
+      }
+    } else {
+      value = value.toLowerCase();
+      if (CSSColors.values[value] != null) {
+        return CSSColors.values[value];
+      }
     }
     return colorHex;
   }

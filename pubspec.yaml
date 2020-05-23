@@ -1,6 +1,6 @@
 name: css_text
 description: This library allows you to use simple CSS inline styles to style your text.
-version: 1.0.2
+version: 2.1.0
 homepage: https://github.com/hathibelagal-dev/css_text_for_flutter
 
 environment:
@@ -9,6 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  xml: ^4.1.0 
+  xml: ^4.1.0
 
 flutter:

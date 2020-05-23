@@ -10,7 +10,12 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     String htmlContent = """
 <body>
-<p style="font-size:1.5em;">
+<p style="font-size:2.5em;color:darkseagreen">This is a test</p>
+<p style="font-size:1.8em;color:#ff3311">So is this</p>
+<p style="font-size:45px;background:#3311ff;color:yellow">And this!</p>
+<br/>
+<br/>
+<p style="font-size:1.5em">
 Hello <b style="font-style:italic;color:#bb0000;background:#eeff00">World</b>!!
 <br/>
 How are you <span style="font-family:RobotoBlack;color:#ff0000;">today?</span>
