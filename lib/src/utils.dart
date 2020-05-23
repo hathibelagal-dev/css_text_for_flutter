@@ -44,13 +44,30 @@ class TextGenUtils {
 class StyleGenUtils {
   /// Creates a [TextStyle] to handle CSS font-weight
   static TextStyle addFontWeight(TextStyle textStyle, String value) {
-    if (value != "normal") {
-      textStyle = textStyle.copyWith(fontWeight: FontWeight.bold);
-    } else {
-      var fw = textStyle.fontWeight;
-      if (fw != FontWeight.normal) {
+    final List<String> _supportedNumValues = [
+      "100",
+      "200",
+      "300",
+      "400",
+      "500",
+      "600",
+      "700",
+      "800",
+      "900"
+    ];
+    if (_supportedNumValues.contains(value)) {
+      return textStyle.copyWith(
+          fontWeight: FontWeight.values[_supportedNumValues.indexOf(value)]);
+    }
+    switch (value) {
+      case "normal":
         textStyle = textStyle.copyWith(fontWeight: FontWeight.normal);
-      }
+        break;
+      case "bold":
+        textStyle = textStyle.copyWith(fontWeight: FontWeight.bold);
+        break;
+      default:
+        textStyle = textStyle.copyWith(fontWeight: FontWeight.bold);
     }
     return textStyle;
   }
