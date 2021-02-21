@@ -36,14 +36,23 @@ This text is slightly transparent, and has a slightly transparent background too
 </body>
 """;
 
-    var myRichText = HTML.toRichText(context, htmlContent, linksCallback: (link) {
-        print("You clicked on $link");
+    var myRichText =
+        HTML.toRichText(context, htmlContent, linksCallback: (link) {
+      print("You clicked on $link");
     });
 
     return MaterialApp(
       home: Scaffold(
-      appBar: AppBar(title: Text("Demo")),
-      body: Container(padding:EdgeInsets.all(16.0), child:myRichText)
-    ));
+        appBar: AppBar(
+          title: Text(
+            "Demo",
+          ),
+        ),
+        body: Container(
+          padding: EdgeInsets.all(16.0),
+          child: myRichText,
+        ),
+      ),
+    );
   }
 }
