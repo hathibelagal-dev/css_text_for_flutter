@@ -152,9 +152,13 @@ class Parser {
       }
 
       if (event is xmle.XmlEndElementEvent) {
+        if (_stack.isEmpty) {
+          print("Malformed HTML. Missing starting tag for ${event.name}");
+          return;
+        }
         var top = _stack.removeLast();
         if (top.name != event.name) {
-          print("Malformed HTML");
+          print("Malformed HTML. Miss matched tags ${event.name}");
           return;
         }
         if (event.name == "p") {

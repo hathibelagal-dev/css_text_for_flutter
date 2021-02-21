@@ -11,4 +11,9 @@ dependencies:
     sdk: flutter
   xml: ^4.1.0
 
+dev_dependencies:
+  test: any
+  flutter_test:
+    sdk: flutter
+
 flutter:
