@@ -87,8 +87,9 @@ class StyleGenUtils {
       }
     } else {
       value = value.toLowerCase();
-      if (CSSColors.values[value] != null) {
-        return CSSColors.values[value];
+      if (CSSColors.values.containsKey(value) &&
+          CSSColors.values[value] != null) {
+        return CSSColors.values[value] ?? colorHex;
       }
     }
     return colorHex;

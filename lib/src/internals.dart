@@ -26,18 +26,22 @@ class _Tag {
   _Tag(this.name, this.styles);
 }
 
+/// A default callback for links that does nothing.
+void defaultLinksCallback(String link) {}
+
 /// This class is at the core of the css_text library. It has most of the
 /// methods required to convert HTML content into Flutter widgets
 class Parser {
   var _stack = [];
   var _events;
-  BuildContext _context;
-  Function _linksCallback;
+  late BuildContext _context;
+  late Function _linksCallback;
 
-  Parser(BuildContext context, String data, {Function linksCallback}) {
+  Parser(BuildContext context, String data,
+      {Function linksCallback = defaultLinksCallback}) {
     _events = xmle.parseEvents(data);
     _context = context;
-    if (linksCallback != null) _linksCallback = linksCallback;
+    _linksCallback = linksCallback;
   }
 
   TextSpan _getTextSpan(text, style) {
@@ -92,10 +96,7 @@ class Parser {
           text: text,
           recognizer: TapGestureRecognizer()
             ..onTap = () {
-              if (_linksCallback != null)
-                _linksCallback(link);
-              else
-                print("Add a link callback to visit $link");
+              _linksCallback(link);
             });
     }
     return TextSpan(style: textStyle, text: text);
@@ -113,7 +114,7 @@ class Parser {
 
   /// Converts HTML content to a list of [TextSpan] objects
   List<TextSpan> parse() {
-    List spans = <TextSpan>[];
+    List<TextSpan> spans = List.empty(growable: true);
     _events.forEach((event) {
       if (event is xmle.XmlStartElementEvent) {
         if (!event.isSelfClosing) {
@@ -163,8 +164,8 @@ class Parser {
       }
 
       if (event is xmle.XmlTextEvent) {
-        final currentSpan = _handleText(event.text);
-        if (currentSpan.text.isNotEmpty) {
+        final currentSpan = _handleText(event.value);
+        if (currentSpan.text!.isNotEmpty) {
           spans.add(currentSpan);
         }
       }

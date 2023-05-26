@@ -26,8 +26,9 @@ class HTML {
   /// pass a function to this method. You can use the function to handle
   /// click events on anchor tags. The function will receive the actual link
   /// as its argument.
+
   static TextSpan toTextSpan(BuildContext context, String htmlContent,
-      {Function linksCallback}) {
+      {Function linksCallback = defaultLinksCallback}) {
     Parser p = Parser(context, htmlContent, linksCallback: linksCallback);
     return TextSpan(text: "", children: p.parse());
   }
@@ -38,7 +39,7 @@ class HTML {
   /// click events on anchor tags. The function will receive the actual link
   /// as its argument.
   static RichText toRichText(BuildContext context, String htmlContent,
-      {Function linksCallback}) {
+      {Function linksCallback = defaultLinksCallback}) {
     return RichText(
         text: toTextSpan(context, htmlContent, linksCallback: linksCallback));
   }

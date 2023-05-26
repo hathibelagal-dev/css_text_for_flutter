@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:css_text/css_text.dart';
+import 'package:logger/logger.dart';
 
 void main() {
-  runApp(Home());
+  runApp(const Home());
 }
 
+Logger logger = Logger();
+
 class Home extends StatelessWidget {
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     String htmlContent = """
@@ -36,14 +41,15 @@ This text is slightly transparent, and has a slightly transparent background too
 </body>
 """;
 
-    var myRichText = HTML.toRichText(context, htmlContent, linksCallback: (link) {
-        print("You clicked on $link");
+    var myRichText =
+        HTML.toRichText(context, htmlContent, linksCallback: (link) {
+      logger.i("You clicked on $link");
     });
 
     return MaterialApp(
-      home: Scaffold(
-      appBar: AppBar(title: Text("Demo")),
-      body: Container(padding:EdgeInsets.all(16.0), child:myRichText)
-    ));
+        home: Scaffold(
+            appBar: AppBar(title: const Text("Demo")),
+            body: Container(
+                padding: const EdgeInsets.all(16.0), child: myRichText)));
   }
 }
